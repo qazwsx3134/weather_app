@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 3000 //在Heroku上面抓取PORT 從process.env裡面抓 如果沒有數值就用3000(在local時候可以用)
 
 //Define paths for Express config
 //把public從這電腦的path設成一個變數
@@ -120,7 +121,7 @@ app.get('*',(req, res) => {
 //app.com/help  *Route
 //app.com/about
 //app.com/weather
-app.listen(3000, () => { 
-    console.log('Server is up on port 3000')
+app.listen(port), () => { 
+    console.log('Server is up on port '+ port)
     
 })
